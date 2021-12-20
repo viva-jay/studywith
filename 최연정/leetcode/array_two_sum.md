@@ -2,11 +2,11 @@
 
 **Time complexity**
 
-* 결과가 nums[n-2] + nums[n-1]경우를 생각해보면 최대 $n(n-1)/2$ 번의 검사를 해야하므로 complexity는 $O(n^2)$ 이다.  참고로 결과가 nums[0] + nums[1]인 경우는 $Ω(1)$ 이다.
+* 결과가 nums[n-2] + nums[n-1]경우를 생각해보면 최대 <img src="https://render.githubusercontent.com/render/math?math=n(n-1)/2"> 번의 검사를 해야하므로 complexity는 <img src="https://render.githubusercontent.com/render/math?math=O(n^2)"> 이다.  참고로 결과가 nums[0] + nums[1]인 경우는 <img src="https://render.githubusercontent.com/render/math?math=\Omega(1)"> 이다.
 
 **Space complexity**
 
-* 다른 배열에 복사 하는 과정이 없이 이미 주어진 배열을 사용하므로 complexity는 $O(1)$ 이다.
+* 다른 배열에 복사 하는 과정이 없이 이미 주어진 배열을 사용하므로 complexity는 <img src="https://render.githubusercontent.com/render/math?math=O(1)"> 이다.
 
 ```java
 class Solution {
@@ -32,11 +32,11 @@ class Solution {
 
 **Time complexity**
 
-* 해시 테이블을 이용하면 N개의 요소에 대해 $O(1)$ 의 탐색을 하므로 complexity는 $O(n)$ 이다.
+* 해시 테이블을 이용하면 N개의 요소에 대해 <img src="https://render.githubusercontent.com/render/math?math=O(1)"> 의 탐색을 하므로 complexity는 <img src="https://render.githubusercontent.com/render/math?math=O(n)"> 이다.
 
 **Space complexity**
 
-* N개의 요소를 저장할 해시 테이블이 필요하므로  complexity는 $O(N)$ 이다.
+* N개의 요소를 저장할 해시 테이블이 필요하므로  complexity는 <img src="https://render.githubusercontent.com/render/math?math=O(n)"> 이다.
 
 ```java
 class Solution {
