@@ -1,6 +1,6 @@
 배열 또는 리스트에서 두 개의 포인터를 이용하는 알고리즘이다. 문제의 조건이 연속 또는 선행적으로 무언가를 해야 할 때 사용한다.  다음 그림은 two pointers 유형의 핵심 아이디어를 간략하게 보여준다.
 
-![image-20220102193041064](/Users/yeonjeongchoi/Library/Application Support/typora-user-images/image-20220102193041064.png)
+![image](https://user-images.githubusercontent.com/37570093/149656764-d03cc8e6-bfd7-4789-9bcc-13323208c255.png)
 
 
 
