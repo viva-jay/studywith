@@ -181,3 +181,117 @@ class Solution {
 ### Link
 
 * https://leetcode.com/problems/valid-palindrome/
+
+
+
+
+
+# Move Elements in Array
+
+
+
+## Remove Element
+
+### 요구 조건
+
+1. 주어진 배열 nums에서 값 val을 `in-place` 제거 한 후 배열의 길이를 반환한다.
+2. 반환 값은 배열의 길이 이지만 실제로 변경된 배열을 검증하는 단계가 있다. 따라서 단순히 카운트만 하면 안되고 배열을 변경 해야 한다.
+3. 반환 되는 배열은 원래 순서를 유지하지 않아도 된다.
+
+
+
+### Solution 1
+
+배열을 순회 하면서 newIndex에 요소를 재배치 시킨다. newIndex는  val에 해당하는 값이 나오면 그 자리에 새로운 값으로 교환될 때 까지 더 이상 증가하지 않고 멈추어 있는다. 따라서 val이 2이고 [2,2,2,1]이라는 배열이 있을 때 첫 번째 2 부터 자리를 채울 수 있게 된다.
+
+```java
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int newIndex = 0;
+        for(int index = 0; index < nums.length; index++){
+            if(nums[index] != val){ //newIndex가 증가하는 조건
+                nums[newIndex] = nums[index];
+                newIndex = newIndex + 1; //다음 자리 찾아감
+            }
+        }
+        return newIndex;
+    }
+}
+```
+
+### Solution 2
+
+ [4,1,2,3], val = 4 인 경우  위의 알고리즘으로 해결할 경우 1,2,3이 왼쪽으로 한 칸씩 이동해야 하는데 이는 불필요한 복사 작업 같아 보인다. 문제의 요구 조건 중 반환 되는 배열은 순서를 유지할 필요가 없다고 했으므로 nums[index] == val일 때, 현재 값을 가장 마지막 요소로 변경하면 불필요한 복사 없이 해결 할 수 있다.
+
+```java
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int left = 0;
+        int right = nums.length;
+        
+        while(left < right){
+            if(nums[left] == val){
+                nums[left] = nums[right - 1];
+                right = right - 1;
+            }else{
+                left = left + 1;
+            }
+        }
+        
+        return right;
+    }
+}
+```
+
+
+
+
+
+### Time complexity
+
+* N개의 문자열에 대하여 두 포인터가 중간에서 만나거나 최대 한번 순회하므로 <img src="https://render.githubusercontent.com/render/math?math=O(n)"> 이다.
+
+### Space complexity
+
+* 추가적인 배열이 필요하지 않으므로  complexity는 <img src="https://render.githubusercontent.com/render/math?math=O(1)"> 이다.
+
+### Link
+
+* https://leetcode.com/problems/remove-element/
+
+ 
+
+## Remove duplicate from sorted array
+
+### 요구 조건
+
+1. 중복 숫자가 존재 하는 경우 숫자가 하나만 남을 수 있도록 중복된 숫자를 `in-place` 제거 하고 배열의 길이를 반환한다.
+2. 반환 되는 배열은 순서를 유지 해야 한다.
+
+```java
+class Solution {
+    
+    public int removeDuplicates(int[] nums) {
+        int newIndex = 1;
+        for(int index = 1; index < nums.length; index++){
+            if(nums[index] != nums[index - 1]){
+                nums[newIndex] = nums[index];
+                newIndex = newIndex + 1; // 두 개의 중복 숫자중 마지막 자리의 숫자가 삭제가 됨
+            }
+        }
+        return newIndex;
+    }
+}
+```
+
+### Time complexity
+
+* N개의 문자열에 대하여 두 포인터가 최대 한 번 순회하므로 <img src="https://render.githubusercontent.com/render/math?math=O(n)"> 이다.
+
+### Space complexity
+
+* 추가적인 배열이 필요하지 않으므로  complexity는 <img src="https://render.githubusercontent.com/render/math?math=O(1)"> 이다.
+
+### Link
+
+* https://leetcode.com/problems/remove-duplicates-from-sorted-array/
