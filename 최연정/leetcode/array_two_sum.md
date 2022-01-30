@@ -44,7 +44,7 @@ class Solution {
         Map<Integer, Integer> map = new HashMap<>();
         int length = nums.length;
         
-        for(int index = 0; index < length; index++){
+        for(int index = 0; index < length; index++){ //n개의 요소를 멥에 저장
             map.put(nums[index], index);
         }
         
@@ -84,4 +84,8 @@ class Solution {
     }
 }
 ```
+
+
+
+### Link
 
