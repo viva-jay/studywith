@@ -11,7 +11,7 @@
 
 핵심 아이디어는 hash function을 사용하여 키를 버킷에 매핑하는 것이다. 새로운 키를 insert하면 hash function이 키를 할당해야 하는 버킷을 결정하고 키가 해당 버킷에 저장된다. 키를 이용하여 검색하려는 경우 hash table은 동일한 hash function을 사용하여 해당 버킷을 찾고 그 버킷에서 검색한다.
 
-
+![스크린샷 2022-02-13 오후 9 07 13](https://user-images.githubusercontent.com/37570093/153752483-63f702dc-c175-45cc-a5b7-8dc57c13404e.png)
 
  `y = x % 5`를 hash function으로 사용하고 위와 같은 상황이 주어 질때 insertion과 search는 다음과 같이 동작 한다.
 
