@@ -102,7 +102,6 @@ class MyHashSet {
         int index = generateIndex(key);
         
         if(set[index] != null){
-        
             for(int i = 0; i < set[index].size(); i++){
                 int value = set[index].get(i);
                 if(value == key){ // 버킷에 값이 있는 경우 삭제한다.
@@ -156,7 +155,39 @@ LinkedList를 사용하면 list의 순서를 수정하지 않고 O(1)만에 삭�
 
 
 
-
+위의 접근 방식에서 단점 중 하나는 값이 버킷에 존재하는지 확인하기 위해 리스트 전체를 스캔해야 한다는 것이다.
 
 # Design HashMap
+
+
+
+
+
+# Contains Duplicate
+
+
+
+### Approach 1 : HashMap
+
+```java
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+            Map<Integer, Integer> container = new HashMap<>();
+
+            for(int num : nums) {
+               	int value =  container.compute(num , new BiFunction<Integer, Integer, Integer>() {
+                @Override
+                public Integer apply(Integer integer, Integer integer2) {
+                  		return container.getOrDefault(integer, 0) + 1;
+                }
+            }); 
+              
+            if(value > 1){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
