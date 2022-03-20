@@ -110,8 +110,8 @@ FROM Person
 
 ```Sql
 SELECT 
-		E.name, 
-		B.bonus
+	E.name, 
+	B.bonus
 FROM Employee AS E 
     LEFT JOIN Bonus AS B
     ON E.empId = B.empId
