@@ -12,7 +12,7 @@
 
 대표적인 그리디 알고리즘으로 조합 최적화 문제의 일종이다. 담을 수 있는 최대 무게가 정해진 배낭과 함께 각각의 무게와 가치가 주어진 아이템의 집합이 주어젔을 때, 배낭에 담은 아이템들의 가치의 합이 최대가 되도록 하는 아이템들의 부분집합을 찾는 문제이다.
 
-![image-20220312165739197](/Users/yeonjeongchoi/Library/Application Support/typora-user-images/image-20220312165739197.png)
+![image-20220312165739197](https://user-images.githubusercontent.com/37570093/159168899-4f192e4f-d4e7-4976-9ead-01c37623e39e.png)
 
 ## 분할 가능한 배낭 문제(fractional knapsack problem)
 
