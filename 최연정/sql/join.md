@@ -22,12 +22,10 @@ FROM <첫 번째 테이블>
 
 # Combine Two Tables
 
-
-
 ### Problem
 
-```
-Table : Person
+```SQL
+# Table : Person
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -36,7 +34,7 @@ Table : Person
 | firstName   | varchar |
 +-------------+---------+
 
-Table : Address
+# Table : Address
 +--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
@@ -75,3 +73,53 @@ FROM Person
 ### Link
 
 * https://leetcode.com/problems/combine-two-tables/
+
+
+
+
+
+# Employee Bonus
+
+### Problem
+
+```SQL
+# Table : Employee
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| empId       | int     |
+| name        | varchar |
+| supervisor  | int     |
+| salary      | int     |
++-------------+---------+
+
+# Table : Bonus
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| empId       | int  |
+| bonus       | int  |
++-------------+------+
+```
+
+1000 보다 작은 보너스를 가진 직원의 이름과 보너스를 보고하는  SQL 쿼리를 작성한다. 이때 보너스가 없는 직원의 정보도 표시가 되어야 한다.
+
+### Solution
+
+일부 직원은 보너스 레코드가 없기 때문에 OUTER JOIN을 사용한다. 개념적으로 NULL은 `알 수 없는 값이 누락됨` 을 의미하며 다른 값과 다소 다르게 취급 된다.  NULL은 비교가 가능한 숫자 또는 문자열이 아니기 때문에  =,<과 같은 비교연산자를 사용할 수 없으며 WHERE절에서 비교연산자를 사용하면 NULL 값은 제외된다. NULL 값을 포함시키려면 ` IS NULL` 또는` IS NOT NULL`을 사용해야 한다.
+
+```Sql
+SELECT 
+		E.name, 
+		B.bonus
+FROM Employee AS E 
+    LEFT JOIN Bonus AS B
+    ON E.empId = B.empId
+WHERE bonus < 1000 OR bonus IS NULL;
+```
+
+
+
+### Link
+
+* https://leetcode.com/problems/employee-bonus/
