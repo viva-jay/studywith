@@ -41,12 +41,3 @@ SELECT id,
  GROUP BY id;
 ```
 
-## 조건 조회
-### 문제 : [1757. Recyclable and Low Fat Products](https://leetcode.com/problems/recyclable-and-low-fat-products/)
-**문제 풀이**
-- MySQL, MS SQL Server, Oracle 풀이
-```roomsql
-SELECT product_id
-  FROM Products
- WHERE low_fats = 'Y' AND recyclable = 'Y';
-```
