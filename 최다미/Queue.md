@@ -36,7 +36,7 @@
   
 ### 문제 : [2073. Time Needed to Buy Tickets](https://leetcode.com/problems/time-needed-to-buy-tickets/)
 **Brute Force를 이용한 문제 풀이**
-- 시간 복잡도 : n개의 요소에 대해 O(n) 의 탐색을 하므로 시간 복잡도는 O(n<sup>2</sup>) 이다.
+- 시간 복잡도 : 시간 복잡도는 O(nm) 이다.
 - 공간 복잡도 : n의 값과 상관 없이 변수 countTime 만 필요하므로 공간 복잡도는 O(1) 이다.
 - 풀이
 ```java
@@ -79,7 +79,7 @@ class Solution {
 ```
 
 **Queue를 이용한 풀이**
-- 시간 복잡도 : n개의 요소에 대해 O(1) 의 탐색을 하므로 시간 복잡도는 O(n) 이다.
+- 시간 복잡도 : 시간 복잡도는 O(nm) 이다.
 - 공간 복잡도 : 공간 복잡도는 O(n) 이다.
 - 풀이
 ```java
