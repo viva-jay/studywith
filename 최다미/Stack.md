@@ -2,6 +2,34 @@
 
 스택이란 한 쪽 끝에서 자료를 넣고 뺄 수 있는 LIFO(Last In First Out) 형식의 자료 구조를 말한다.
 
+## 스택 예제
+```java
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Main {
+    public static void main(String[] args) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        
+        // 삽입(5) - 삽입(2) - 삽입(3) - 삽입(7) - 삭제() - 삽입(1) - 삽입(4) - 삭제()
+        stack.push(5);
+        stack.push(2);
+        stack.push(3);
+        stack.push(7);
+        stack.pop();   // 7 제거
+        stack.push(1);
+        stack.push(4);
+        stack.pop();   // 4 제거
+        
+        // 스택의 최상단 원소부터 출력
+        // 실행 결과 : 1 3 2 5
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop() + " ");
+        }
+    }
+}
+```
+
 ## 유효한 괄호
 ### 문제 : [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 **문제 풀이**
