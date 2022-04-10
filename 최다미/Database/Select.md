@@ -41,3 +41,35 @@ SELECT id,
  GROUP BY id;
 ```
 
+## 조건 조회
+### 문제 : [1757. Recyclable and Low Fat Products](https://leetcode.com/problems/recyclable-and-low-fat-products/)
+**문제 풀이**
+- MySQL, MS SQL Server, Oracle 풀이
+```roomsql
+SELECT product_id
+  FROM Products
+ WHERE low_fats = 'Y' AND recyclable = 'Y';
+```
+
+## GROUP BY
+### 문제 : [1693. Daily Leads and Partners](https://leetcode.com/problems/daily-leads-and-partners/)
+**문제 풀이**
+- MySQL, MS SQL Server 풀이
+```roomsql
+SELECT date_id
+     , make_name
+     , COUNT(DISTINCT lead_id) AS unique_leads
+     , COUNT(DISTINCT partner_id) AS unique_partners
+  FROM DailySales
+ GROUP BY date_id, make_name;
+```
+
+- Oracle 풀이
+```roomsql
+SELECT TO_CHAR(date_id, 'YYYY-MM-DD') AS date_id
+     , make_name
+     , COUNT(DISTINCT lead_id) AS unique_leads
+     , COUNT(DISTINCT partner_id) AS unique_partners
+  FROM DailySales
+ GROUP BY date_id, make_name;
+```
