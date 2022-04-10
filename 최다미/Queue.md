@@ -10,6 +10,34 @@
 
 큐의 종류에는 선형과 환형이 있다.
 
+## 큐 예제
+```java
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Main {
+  public static void main(String[] args) {
+    Deque<Integer> queue = new ArrayDeque<>();
+    
+    // 삽입(5) - 삽입(2) - 삽입(3) - 삽입(7) - 삭제() - 삽입(1) - 삽입(4) - 삭제()
+    queue.offer(5);
+    queue.offer(2);
+    queue.offer(3);
+    queue.offer(7);
+    queue.poll();   // 5 제거
+    queue.offer(1);
+    queue.offer(4);
+    queue.poll();   // 2 제거
+    
+    // 먼저 들어온 원소부터 추출
+    // 실행 결과 : 3 7 1 4
+    while (!queue.isEmpty()) {
+        System.out.print(queue.poll() + " ");
+    }
+  }
+}
+```
+
 ### 문제 : [933. Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls/)
 **문제 풀이**
 - 시간 복잡도 : n개의 요소에 대해 O(1) 의 탐색을 하므로 시간 복잡도는 O(n) 이다.
