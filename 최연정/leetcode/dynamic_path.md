@@ -150,3 +150,57 @@ class Solution {
 
 
 
+### 주어진 동전을 사용하여 금액을 만들 수 있는 모든 경우의 수
+
+1. 2차원 배열을 이용한 풀이
+
+   1. `dp[i][j]`는 i 번째 동전까지 사용하여 금액 j를 만드는 경우의 수를 나타낸다. 
+
+   2. [i]번째 동전을 사용할 수 있는 경우
+
+      - 현재 동전을 사용하지 않고 금액을 만드는 경우의 수 + 현재 동전을 사용하고 나머지 금액은 다른 동전으로 채우는 방법
+
+      - `dp[i][j] = dp[i-1][j] + dp[i][j - coins[i]]`
+
+   3. [i]번째 동전을 사용할 수 없는 경우
+
+      - 현재 동전을 사용하지 않고 금액을 만드는 경우의 수
+
+      - `dp[i][j] = dp[i-1][j]`
+
+    ```java
+    class Solution {
+        
+        public int solution() {
+   
+            for (int i = 1; i <= n; i++) { // n 개의 코인
+                for (int j = 1; j <= k; j++) { // 목표 금액 (1 ~ k)
+                    if (j < coins[i]) { // 목표 금액 보다 코인 액면가가 더 큰 경우
+                        dp[i][j] = dp[i - 1][j]; // 현재 동전을 사용하지 않고 현재 보다 액면가가 작은 다른 동전으로 금액을 만드는 경우의 수
+                    } else {
+                       // 현재 동전을 사용하지 않고 금액을 만드는 경우의 수 + 현재 동전을 사용하고 나머지 금액은 다른 동전으로 채우는 경우의 수
+                        dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i]]; 
+                    }
+                }
+            }
+            return dp[n][k];
+        }
+    }
+   
+   // [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+   // [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6]
+   // [1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 10]
+    ```
+
+
+###### Time complexity
+
+* 전체 배열을 1번 순회 하므로  complexity는 <img src="https://render.githubusercontent.com/render/math?math=O(n*m)"> 이다.
+
+###### Space complexity
+
+* N개의 요소를 저장할 별도의 배열 필요하지 않으므로  complexity는 <img src="https://render.githubusercontent.com/render/math?math=O(1)"> 이다.
+
+###### Link
+
+* https://www.acmicpc.net/problem/2293
